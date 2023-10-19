@@ -6,10 +6,14 @@ const router = Router()
 
 /*---------- Public Routes ----------*/
 
+// FOR DEMO PURPOSES ONLY
+router.get('/', profilesCtrl.index)
 
 /*---------- Protected Routes ----------*/
 router.use(decodeUserFromToken)
-router.get('/', checkAuth, profilesCtrl.index)
-// router.put('/:id/add-photo', checkAuth, profilesCtrl.addPhoto)
+
+router.get('/:id', checkAuth, profilesCtrl.show)
+router.put('/:id/add-photo', checkAuth, profilesCtrl.addPhoto)
+
 
 export { router }

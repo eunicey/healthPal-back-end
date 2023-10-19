@@ -6,11 +6,8 @@ const router = Router()
 
 // ========== Public Routes ===========
 
-router.post('/', chatCtrl.create)
-
 // ========= Protected Routes ========= 
 router.use(decodeUserFromToken)
-// router.post('/', checkAuth, chatCtrl.create)
-
+router.post('/results', checkAuth, chatCtrl.getResults)
 
 export { router }

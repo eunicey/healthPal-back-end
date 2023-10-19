@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 
 const profileSchema = new Schema({
   name: {type: String, required: true},
-  sex: {type: String, enum:["M", "F"]},
+  sex: {type: String, enum:["Male", "Female"]},
   birthYear: {type: Number, required: true},
   weight: {type: Number, required: true},
   height: {type: Number, required: true},

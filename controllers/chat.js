@@ -19,16 +19,17 @@ async function getResults(req, res) {
         messages: [
           {
             role: "system",
-            content: "You are an AI medical assistant. Generate a structured response with the following sections: If symptoms require serious medical attention, respond with \"SOS call 911\", describe the best treatment option and what the user should do next, list the symptoms that led to the treatment recommended.",
+            content: "You are an AI medical assistant who can provide expert advice on self-diagnosis options in the case where an illness can be treated using a home remedy. The user input starts with demographics and medical history and then a list of history of present illness. Generate a structured response with the following headers and information:URGENT: If the illness requires serious medical attention, respond with \"Yes\". Otherwise, respond with \"No\". \n\nTREATMENT: Describe the best treatment option and what the user should do next.\n\nSYMPTOMS: List the symptoms that led to the treatment recommended.",
           },
           {
             role: "user", 
             content: req.body.message,
           }],
-        max_tokens: 100,
+        // max_tokens: 100,
       })
     }
 
+    console.log(options)
     const apiResponse = await fetch(`${OPENAI_URL}`, options)
 
     const resultsData = await apiResponse.json()

@@ -30,7 +30,6 @@ async function getResults(req, res) {
       })
     }
 
-    console.log("DATA SENT:", options)
     const apiResponse = await fetch(`${OPENAI_URL}`, options)
 
     const resultsData = await apiResponse.json()

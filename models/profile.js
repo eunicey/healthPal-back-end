@@ -8,7 +8,9 @@ const profileSchema = new Schema({
   birthYear: {type: Number, required: true},
   weight: {type: Number, required: true},
   height: {type: Number, required: true},
-  medicalHx: {type: String, enum:["Hypertension", "Diabetes", "Hyperlipidemia", "Gastric Reflux", "Cancer", "Gout", "Asthma"]}
+  medicalHx: {type: String, enum:["Hypertension", "Diabetes", "Hyperlipidemia", "Gastric Reflux", "Cancer", "Gout", "Asthma"]},
+  photo: String,
+
 },{
   timestamps: true,
 })
